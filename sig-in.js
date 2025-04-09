@@ -1,11 +1,16 @@
-const sign_in_btn = document.querySelector("#sign-in-btn");
-const sign_up_btn = document.querySelector("#sign-up-btn");
-const container = document.querySelector(".container");
+document.getElementById('signup-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-sign_up_btn.addEventListener("click", () => {
-  container.classList.add("sign-up-mode");
-});
+  const username = document.getElementById('signup-username').value;
+  const password = document.getElementById('signup-password').value;
+  const role = document.querySelector('input[name="role"]:checked').value;
 
-sign_in_btn.addEventListener("click", () => {
-  container.classList.remove("sign-up-mode");
+  const res = await fetch('http://localhost:8080/signup', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username, password, role }),
+  });
+
+  const data = await res.json();
+  alert(data.message || 'Signup successful');
 });
