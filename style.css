@@ -21,17 +21,65 @@ header{
     
 }
 header>
-header a{
+header {
+    background-color: rgba(0, 0, 0, 0.9);
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 10px rgba(241, 104, 58, 0.3);
+}
+
+header nav {
+    display: flex;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+header a {
     color: white;
-    margin-right: 40px;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 5px 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+header a:hover {
+    color: #f1683a;
+}
+
+header a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #f1683a;
+    transition: width 0.3s ease;
+}
+
+header a:hover::after {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    header nav {
+        gap: 15px;
+        justify-content: center;
+    }
+    
+    header a {
+        font-size: 0.9rem;
+    }
 }
 /* carousel */
 .carousel{
     height: 100vh;
-    margin-top: 10px;
+    margin: 0; /* Remove margin to eliminate gaps */
     width: 100vw;
     overflow: hidden;
     position: relative;
+    background-color: #000; /* Match the background color */
 }
 .carousel .list .item{
     width: 100%;
@@ -43,7 +91,7 @@ header a{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top center; 
+    object-position: center; 
   }
   
 .carousel .list .item .content{
@@ -346,6 +394,15 @@ header a{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0; /* Remove margin to eliminate gaps */
+    padding: 0; /* Remove padding */
+    background-color: #000; /* Match the background color */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1; /* Ensure it's fully visible */
+    transform: none; /* Reset any transform effects */
+    transition: none; /* Disable transition for blending */
 }
 
 #container1>video {
@@ -468,26 +525,32 @@ header a{
 }
 
 #main {
-    background-color: #f8f8f8;
-    padding: 40px 0;
+    background-color: #000; /* Match the background color */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    background-image: url('image/sports-background.jpg'); /* Replace with your sports background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 60px 20px;
 }
 
 /* About Section */
 #about {
-    background-color: #fff;
-    padding: 60px 0;
-}
-
-.about-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    background-color: #000; /* black background */
+    padding: 60px 20px;
+    margin: 0; /* Remove margin */
+    background-image: url('image/about-background.jpg'); /* Replace with your about background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 60px 20px;
 }
 
 #about h2 {
     text-align: center;
     font-size: 2.5rem;
-    color: #333;
+    color: #fff; /* white title */
     margin-bottom: 40px;
     position: relative;
 }
@@ -503,6 +566,88 @@ header a{
     background-color: #f1683a;
 }
 
+/* Card Container */
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Individual Card */
+.card {
+    background-color: #fff;
+    color: #333;
+    border-radius: 12px;
+    padding: 20px 30px;
+    text-align: center;
+    width: 220px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Title */
+.card h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Description */
+.card p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Hover Effect */
+.card:hover {
+    transform: translateY(-10px) scale(1.05) rotate(1deg);
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #f1683a, #d45a2e);
+    color: white;
+}
+
+/* Optional Glow Effect on Hover */
+.card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+    transform: rotate(25deg);
+    transition: opacity 0.5s, transform 0.5s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card:hover::before {
+    opacity: 1;
+    transform: rotate(45deg);
+}
+
+/* Title and description hover effect */
+.card h3, .card p {
+    transition: color 0.3s ease;
+}
+
+.card:hover h3 {
+    color: #fff;
+}
+
+.card:hover p {
+    color: #f8f8f8;
+}
+
+.card.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .about-content {
     display: flex;
     align-items: center;
@@ -511,6 +656,7 @@ header a{
 
 .about-text {
     flex: 1;
+    text-align: center; /* Aligns the text to the center */
 }
 
 .about-text p {
@@ -529,6 +675,9 @@ header a{
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin: 20px auto; /* Centers the button horizontally */
+    display: block; /* Ensures the button respects the margin auto */
+    text-align: center;
 }
 
 .learn-more:hover {
@@ -551,4 +700,221 @@ header a{
         flex-direction: column;
     }
 }
-  
+#about {
+    background-color: #000;
+    padding: 60px 20px;
+    border-top: none;  /* Remove top border */
+    border-bottom: none; /* Remove bottom border */
+}
+/* General section spacing reset */
+section {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+#about::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to bottom, white, transparent);
+    z-index: 1;
+}
+
+#about::after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to top, white, transparent);
+    z-index: 1;
+}
+.card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.05) rotate(1deg);
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #f1683a, #d45a2e);
+    color: white;
+}
+
+/* Optional Glow Effect on Hover */
+.card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+    transform: rotate(25deg);
+    transition: opacity 0.5s, transform 0.5s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card:hover::before {
+    opacity: 1;
+    transform: rotate(45deg);
+}
+
+/* Title and description hover effect */
+.card h3, .card p {
+    transition: color 0.3s ease;
+}
+
+.card:hover h3 {
+    color: #fff;
+}
+
+.card:hover p {
+    color: #f8f8f8;
+}
+
+/* Contact Us Section */
+#contact {
+    background: linear-gradient(135deg, #1a1a1a, #000); /* Dark gradient background */
+    color: #eee;
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-image: url('image/contact-background.jpg'); /* Replace with your contact background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 80px 20px;
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #f1683a;
+    position: relative;
+    animation: fadeIn 1s ease-in-out;
+}
+
+#contact p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: #ccc;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+#contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+#contact .form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#contact input,
+#contact textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background: #222;
+    color: #eee;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+    border-color: #f1683a;
+    outline: none;
+    box-shadow: 0 0 10px rgba(241, 104, 58, 0.5);
+}
+
+#contact .submit-btn {
+    background: linear-gradient(135deg, #f1683a, #d45a2e);
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#contact .submit-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Floating Background Animation */
+#contact::before,
+#contact::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(241, 104, 58, 0.3), transparent);
+    z-index: 0;
+    animation: float 6s infinite ease-in-out;
+}
+
+#contact::before {
+    top: -100px;
+    left: -100px;
+}
+
+#contact::after {
+    bottom: -100px;
+    right: -100px;
+    animation-delay: 3s;
+}
+
+/* Keyframes for Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(20px);
+    }
+}

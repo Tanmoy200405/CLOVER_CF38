@@ -70,5 +70,134 @@ h4all.forEach(function (elem) {
     crsr.style.backgroundColor = "#95C11E";
   });
 });
+window.addEventListener("scroll", () => {
+  document.querySelectorAll(".card").forEach((card) => {
+      const top = card.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) {
+          card.classList.add("reveal");
+      }
+  });
+});
 
+// Scroll-triggered animation for Explore More section
+window.addEventListener("scroll", () => {
+    const container1 = document.querySelector("#container1");
+    const container1Top = container1.getBoundingClientRect().top;
+
+    if (container1Top < window.innerHeight - 100) {
+        container1.classList.add("visible");
+    }
+});
+
+// GSAP Scroll Animations
+gsap.registerPlugin(ScrollTrigger);
+
+// Animate sections on scroll
+gsap.from("#about h2", {
+    scrollTrigger: {
+        trigger: "#about h2",
+        start: "top 80%",
+        toggleActions: "play none none none",
+    },
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out",
+    onComplete: () => {
+        gsap.set("#about h2", { opacity: 1, transform: "none" });
+    },
+});
+
+gsap.from(".about-text p", {
+    scrollTrigger: {
+        trigger: ".about-text",
+        start: "top 80%",
+        toggleActions: "play none none none",
+    },
+    y: 30,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    ease: "power2.out",
+    onComplete: () => {
+        gsap.set(".about-text p", { opacity: 1, transform: "none" });
+    },
+});
+
+gsap.from(".learn-more", {
+    scrollTrigger: {
+        trigger: ".learn-more",
+        start: "top 80%",
+        toggleActions: "play none none none",
+    },
+    scale: 0.8,
+    opacity: 0,
+    duration: 0.8,
+    ease: "back.out(1.7)",
+    onComplete: () => {
+        gsap.set(".learn-more", { opacity: 1, transform: "none" });
+    },
+});
+
+gsap.from(".card", {
+    scrollTrigger: {
+        trigger: ".card-container",
+        start: "top 80%",
+        toggleActions: "play none none none",
+    },
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    ease: "power2.out",
+    onComplete: () => {
+        gsap.set(".card", { opacity: 1, transform: "none" });
+    },
+});
+
+gsap.from("#contact h2", {
+    scrollTrigger: {
+        trigger: "#contact h2",
+        start: "top 80%",
+        toggleActions: "play none none none",
+    },
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out",
+    onComplete: () => {
+        gsap.set("#contact h2", { opacity: 1, transform: "none" });
+    },
+});
+
+gsap.from("#contact form .form-group", {
+    scrollTrigger: {
+        trigger: "#contact form",
+        start: "top 80%",
+        toggleActions: "play none none none",
+    },
+    y: 30,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    ease: "power2.out",
+    onComplete: () => {
+        gsap.set("#contact form .form-group", { opacity: 1, transform: "none" });
+    },
+});
+
+gsap.from("#contact .submit-btn", {
+    scrollTrigger: {
+        trigger: "#contact form",
+        start: "top 80%",
+        toggleActions: "play none none none",
+    },
+    scale: 0.8,
+    opacity: 0,
+    duration: 0.8,
+    ease: "back.out(1.7)",
+    onComplete: () => {
+        gsap.set("#contact .submit-btn", { opacity: 1, transform: "none" });
+    },
+});
 
