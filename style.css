@@ -495,7 +495,7 @@ header a:hover::after {
     width: 100vw;
     display: flex;
 }
-#page1{
+#page2{
 
 }
 #page>p{
@@ -505,7 +505,7 @@ header a:hover::after {
     text-align: right;
 }
 
-#page1 {
+#page2 {
     height: 100vh;
     width: 100%;
     position: relative;
@@ -716,20 +716,26 @@ header a:hover::after {
 
 .about-content {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 40px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .about-text {
-    flex: 1;
-    text-align: center; /* Aligns the text to the center */
+    width: 100%;
 }
 
 .about-text p {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #555;
+    color: #eee;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .learn-more {
