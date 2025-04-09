@@ -1,3 +1,19 @@
+// Loader Control - Fixed 5 second duration
+document.addEventListener('DOMContentLoaded', function() {
+    const loader = document.querySelector('.loader-overlay');
+    
+    // Show loader immediately
+    loader.style.opacity = '1';
+    
+    // Hide loader after exactly 5 seconds
+    setTimeout(() => {
+        loader.style.opacity = '0';
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500);
+    }, 5000);
+});
+
 //step 1: get DOM
 let nextDom = document.getElementById('next');
 let prevDom = document.getElementById('prev');
@@ -87,6 +103,26 @@ window.addEventListener("scroll", () => {
     if (container1Top < window.innerHeight - 100) {
         container1.classList.add("visible");
     }
+});
+
+// Smooth scroll for navigation links
+document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            gsap.to(window, {
+                duration: 1,
+                scrollTo: {
+                    y: targetElement,
+                    offsetY: 100
+                },
+                ease: "power2.inOut"
+            });
+        }
+    });
 });
 
 // GSAP Scroll Animations
@@ -200,4 +236,3 @@ gsap.from("#contact .submit-btn", {
         gsap.set("#contact .submit-btn", { opacity: 1, transform: "none" });
     },
 });
-

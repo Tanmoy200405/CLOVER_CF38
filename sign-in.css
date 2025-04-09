@@ -625,6 +625,10 @@ body {
   border-color: #ff6700; /* Orange border */
   transition: all 0.3s ease;
 }
+.social-icon>img{
+  height: 30px;
+  width: 25px;
+}
 
 .social-icon:hover {
   color: #1a1a1a; /* Black on hover */
