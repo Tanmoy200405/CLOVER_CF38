@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Community Sports Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css"/>
+  <script defer src="dashboard.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <h1 class="main-heading">Community Sports Dashboard</h1>
+  </header>
+
+  <main>
+    <section id="live-matches">
+      <h2>Live Matches</h2>
+      <div class="live-matches-container">
+        <section class="card" id="football">
+          <h3>Football</h3>
+          <ul id="footballList">
+            <!-- JS will populate here -->
+          </ul>
+        </section>
+
+        <section class="card" id="cricket">
+          <h3>Cricket</h3>
+          <ul id="cricketList">
+            <!-- JS will populate here -->
+          </ul>
+        </section>
+
+        <section class="card" id="badminton">
+          <h3>Badminton</h3>
+          <ul id="badmintonList">
+            <!-- JS will populate here -->
+          </ul>
+        </section>
+
+        <section class="card" id="chess">
+          <h3>Chess</h3>
+          <ul id="chessList">
+            <!-- JS will populate here -->
+          </ul>
+        </section>
+      </div>
+    </section>
+
+    <section class="card" id="fixture">
+      <h2>League Fixtures</h2>
+      <div class="scrollable-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Match</th>
+              <th>Venue</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Apr 10</td><td>Red Lions vs Thunder FC</td><td>Community Stadium</td></tr>
+            <tr><td>Apr 12</td><td>Spartans vs Wolves</td><td>Urban Arena</td></tr>
+            <tr><td>Apr 14</td><td>Warriors vs Titans</td><td>National Ground</td></tr>
+            <tr><td>Apr 16</td><td>Smashers vs Shuttlers</td><td>Indoor Court</td></tr>
+            <tr><td>Apr 18</td><td>Magnus Carlsen vs Ian Nepomniachtchi</td><td>Chess Hall</td></tr>
+            <tr><td>Apr 20</td><td>Knights vs Rangers</td><td>National Ground</td></tr>
+            <tr><td>Apr 22</td><td>Strikers vs Blasters</td><td>Community Stadium</td></tr>
+            <tr><td>Apr 24</td><td>Eagles vs Sharks</td><td>Urban Arena</td></tr>
+            <tr><td>Apr 26</td><td>Net Kings vs Birdies</td><td>Indoor Court</td></tr>
+            <tr><td>Apr 28</td><td>Hikaru Nakamura vs Fabiano Caruana</td><td>Chess Hall</td></tr>
+            <tr><td>Apr 30</td><td>Red Lions vs Spartans</td><td>Community Stadium</td></tr>
+            <tr><td>May 2</td><td>Thunder FC vs Wolves</td><td>Urban Arena</td></tr>
+            <tr><td>May 4</td><td>Warriors vs Blasters</td><td>National Ground</td></tr>
+            <tr><td>May 6</td><td>Smashers vs Net Kings</td><td>Indoor Court</td></tr>
+            <tr><td>May 8</td><td>Ding Liren vs Anish Giri</td><td>Chess Hall</td></tr>
+            <tr><td>May 10</td><td>Knights vs Titans</td><td>National Ground</td></tr>
+            <tr><td>May 12</td><td>Strikers vs Rangers</td><td>Community Stadium</td></tr>
+            <tr><td>May 14</td><td>Eagles vs Wolves</td><td>Urban Arena</td></tr>
+            <tr><td>May 16</td><td>Birdies vs Shuttlers</td><td>Indoor Court</td></tr>
+            <tr><td>May 18</td><td>Magnus Carlsen vs Fabiano Caruana</td><td>Chess Hall</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card" id="chat">
+      <h2>Chat Room</h2>
+      <div class="chat-box">
+        <div class="messages">
+          <div class="message"><strong>Ravi:</strong> Let’s win this weekend!</div>
+          <div class="message"><strong>Sara:</strong> Go Wolves!</div>
+        </div>
+        <div class="chat-input">
+          <input type="text" placeholder="Type a message..." id="chatInput">
+          <button id="sendButton"><i class="fas fa-paper-plane"></i> Send</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="members">
+      <h2>Hall of Fame</h2>
+      <div class="scrollable-container">
+        <table class="leaderboard">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+              <th>Achievements</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Agniva</td><td>Top Scorer in Football - 15 Goals</td></tr>
+            <tr><td>2</td><td>Sritam</td><td>Best Bowler in Cricket - 10 Wickets</td></tr>
+            <tr><td>3</td><td>Tanmoy</td><td>Most Assists in Football - 8 Assists</td></tr>
+            <tr><td>4</td><td>Srijato</td><td>Midfield Maestro in Football - 90% Pass Accuracy</td></tr>
+            <tr><td>5</td><td>Ravi</td><td>Best Batsman in Cricket - 120 Runs</td></tr>
+            <tr><td>6</td><td>Sara</td><td>Chess Champion - 5 Consecutive Wins</td></tr>
+            <tr><td>7</td><td>Anish</td><td>Best Defender in Football - 12 Tackles</td></tr>
+            <tr><td>8</td><td>Fabiano</td><td>Chess Grandmaster - 3 Tournament Wins</td></tr>
+            <tr><td>9</td><td>Ian</td><td>Chess Runner-Up - World Championship</td></tr>
+            <tr><td>10</td><td>Magnus</td><td>World Chess Champion - 10 Titles</td></tr>
+            <tr><td>11</td><td>Knights</td><td>Best Team in Cricket - 5 Wins</td></tr>
+            <tr><td>12</td><td>Blasters</td><td>Most Sixes in Cricket - 25 Sixes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="news">
+      <h2>Sports News</h2>
+      <div class="news-container">
+        <article class="news-item">
+          <h3>Red Lions Secure Victory</h3>
+          <p>The Red Lions defeated Thunder FC in a thrilling match, securing a 3-2 victory at Community Stadium.</p>
+        </article>
+        <article class="news-item">
+          <h3>Spartans Prepare for Wolves Clash</h3>
+          <p>The Spartans are gearing up for their upcoming match against Wolves, promising an intense showdown.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

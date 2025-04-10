@@ -1,0 +1,435 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #121212, #1e1e1e);
+    color: #e0e0e0;
+    overflow-x: hidden;
+}
+
+header {
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    padding: 20px 0;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    animation: fadeInDown 1s ease;
+}
+
+.main-heading {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: linear-gradient(to right, #f0a500, #ff6f61);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(240, 165, 0, 0.5), 0 0 20px rgba(255, 111, 97, 0.5);
+    animation: glow 2s infinite alternate;
+}
+
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+main {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    animation: fadeInUp 1s ease;
+}
+
+/* Live Matches Heading */
+#live-matches {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#live-matches h2 {
+    font-size: 2.5rem;
+    color: #f0a500;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(240, 165, 0, 0.5);
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0a500;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.live-matches-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* Live Matches Card */
+.card {
+    background: linear-gradient(to bottom, #1e1e1e, #2a2a2a);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    z-index: 0;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card h2 {
+    margin-bottom: 15px;
+    color: #f0a500;
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    color: #f0a500;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card ul li {
+    font-size: 1rem;
+    color: #e0e0e0;
+    margin-bottom: 10px;
+}
+
+.card ul li strong {
+    color: #f0a500;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.card ul li span {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+ul {
+    list-style: none;
+    position: relative;
+    z-index: 1;
+}
+
+ul li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    animation: fadeIn 0.5s ease;
+}
+
+ul li strong {
+    color: #f0a500;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    position: relative;
+    z-index: 1;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #333;
+    color: #e0e0e0;
+}
+
+th {
+    background-color: #2a2a2a;
+    font-weight: 600;
+    color: #f0a500;
+}
+
+/* Chatbox Styling */
+.chat-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+    height: 300px;
+    background: linear-gradient(to bottom, #1e1e1e, #2a2a2a);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.chat-box .messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.chat-box .message {
+    background-color: #1e1e1e;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: #e0e0e0;
+    animation: fadeIn 0.5s ease;
+}
+
+.chat-box .message strong {
+    color: #f0a500;
+}
+
+.chat-box .chat-input {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.chat-box input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    transition: box-shadow 0.3s ease;
+}
+
+.chat-box input:focus {
+    box-shadow: 0 0 10px #f0a500;
+    outline: none;
+}
+
+.chat-box button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f0a500;
+    color: #1e1e1e;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.chat-box button:hover {
+    background-color: #ff6f61;
+    transform: scale(1.1);
+}
+
+.chat-box button i {
+    pointer-events: none;
+}
+
+/* Scrollbar Styling */
+.chat-box .messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-box .messages::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 4px;
+}
+
+.chat-box .messages::-webkit-scrollbar-thumb:hover {
+    background: #f0a500;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    padding: 15px;
+    background-color: #24243e;
+    color: #e0e0e0;
+    font-size: 0.9rem;
+    animation: fadeInUp 1s ease;
+}
+
+.leaderboard {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #e0e0e0;
+}
+
+.leaderboard th, .leaderboard td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+
+.leaderboard th {
+    background-color: #2a2a2a;
+    color: #f0a500;
+    font-weight: 600;
+}
+
+.leaderboard tr:nth-child(even) {
+    background-color: #1e1e1e;
+}
+
+.leaderboard tr:hover {
+    background-color: #2a2a2a;
+    transition: background-color 0.3s ease;
+}
+
+.leaderboard td i {
+    margin-right: 8px;
+    color: #f0a500;
+}
+
+/* Sports News Section */
+#news {
+    grid-column: 1 / -1; /* Make the section span across all columns */
+    margin-top: 20px;
+}
+
+#news h2 {
+    font-size: 2rem;
+    color: #f0a500;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(240, 165, 0, 0.5);
+}
+
+.news-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%; /* Ensure it takes full width */
+}
+
+.news-item {
+    background: linear-gradient(to bottom, #1e1e1e, #2a2a2a);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+.news-item h3 {
+    color: #f0a500;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.news-item p {
+    color: #e0e0e0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Live Matches Card */
+#matches {
+    position: relative;
+}
+
+/* Score Popup */
+.score-popup {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: #f0a500;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    font-size: 1rem;
+    display: none; /* Hidden by default */
+    z-index: 10;
+    animation: fadeIn 0.3s ease;
+}
+
+.card:hover .score-popup {
+    display: block; /* Show on hover */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(240, 165, 0, 0.5), 0 0 20px rgba(255, 111, 97, 0.5);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(255, 111, 97, 0.7), 0 0 30px rgba(240, 165, 0, 0.7);
+    }
+}
